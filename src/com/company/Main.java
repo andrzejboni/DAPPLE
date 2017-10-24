@@ -11,8 +11,6 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-
-
         double t = 0; // czas
 
 
@@ -24,64 +22,61 @@ public class Main {
         int[] b = new int[Citizens];  // age of citizen
         double[] c = new double[Citizens];  // growth rate per year
 
+        for (int u = 0; u < HowManyTest; u++) {
 
-        for (int i = 0; i < Citizens; i++) {  // pętla ładująca wszystko do tablic
+            for (int i = 0; i < Citizens; i++) {  // pętla ładująca wszystko do tablic
 
-            a[i] = Double.parseDouble(input.next()) / 100;  // konwersja cm na m
-            b[i] = Integer.parseInt(input.next());
-            c[i] = Double.parseDouble(input.next()) / 100;
+                a[i] = Double.parseDouble(input.next()) / 100;  // konwersja cm na m
+                b[i] = Integer.parseInt(input.next());
+                c[i] = Double.parseDouble(input.next()) / 100;
 
-            System.out.println();  // next line
-        }
+                System.out.println();  // next line
+            }
+
+            for (int w = 0; w < 21; w++) {
 
 
-        for (int w = 0; w < 21; w++) {
+                double smallestA = 999;
+                double v = 1; // prędkość
 
-
-            double smallestA = 999;
-            double v = 1; // prędkość
-
-            for (int j = 0; j < Citizens; j++) {  // searching smallest citizen
-                if (smallestA > a[j]) {
-                    smallestA = a[j];
+                for (int j = 0; j < Citizens; j++) {  // searching smallest citizen
+                    if (smallestA > a[j]) {
+                        smallestA = a[j];
+                    }
                 }
-            }
 
-            double LiczWys = 0;
+                double LiczWys = 0;
 
-            while (v < SpeedOfDeath) {
+                while (v < SpeedOfDeath) {
 
 
-                t = Math.sqrt((2 * ( LiczWys)) / 10);
-                v = 10 * t;
+                    t = Math.sqrt((2 * (LiczWys)) / 10);
+                    v = 10 * t;
 
-                LiczWys = LiczWys + 0.00001;
+                    LiczWys = LiczWys + 0.00001;
 
-            }
+                }
 
-            double wysokoscCiecia = (smallestA+LiczWys) * 100; // dodąć math.roud
-
+                double wysokoscCiecia = (smallestA + LiczWys) * 100; // dodąć math.roud
 
 
                 System.out.println(w + ": " + Math.round(wysokoscCiecia));
 
+   
 
-//            for (int gut = 0; gut < Citizens; gut++) {
-//                System.out.println(w + "LiczWys "+ LiczWys+  " wzrost " + a[gut] + " wiek " + b[gut] + " współcznnik " + c[gut] + "najnizszy" + smallestA);
-//
-//            }
 
-            for (int p = 0; p < Citizens; p++) {
-                if (b[p] < 20) {
-                    a[p] = a[p] + c[p];  // mieszkaniec rośnie o wartośc c na rok
+                for (int p = 0; p < Citizens; p++) {
+                    if (b[p] < 20) {
+                        a[p] = a[p] + c[p];  // mieszkaniec rośnie o wartośc c na rok
+                    }
+
+                    b[p]++;  // dodajemy rok życia
                 }
 
-                b[p]++;  // dodajemy rok życia
             }
 
+
         }
-
-
     }
 
 
