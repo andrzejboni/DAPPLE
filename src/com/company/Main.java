@@ -26,7 +26,7 @@ public class Main {
 
             for (int i = 0; i < Citizens; i++) {  // pętla ładująca wszystko do tablic
 
-                a[i] = Double.parseDouble(input.next()) / 100;  // konwersja cm na m
+                a[i] = Double.parseDouble(input.next()) / 100;
                 b[i] = Integer.parseInt(input.next());
                 c[i] = Double.parseDouble(input.next()) / 100;
 
@@ -34,7 +34,6 @@ public class Main {
             }
 
             for (int w = 0; w < 21; w++) {
-
 
                 double smallestA = 999;
                 double v = 1; // prędkość
@@ -44,7 +43,6 @@ public class Main {
                         smallestA = a[j];
                     }
                 }
-
                 double LiczWys = 0;
 
                 while (v < SpeedOfDeath) {
@@ -56,14 +54,10 @@ public class Main {
                     LiczWys = LiczWys + 0.00001;
 
                 }
-
-                double wysokoscCiecia = (smallestA + LiczWys) * 100; // dodąć math.roud
+                double wysokoscCiecia = (smallestA + LiczWys) * 100;
 
 
                 System.out.println(w + ": " + Math.round(wysokoscCiecia));
-
-   
-
 
                 for (int p = 0; p < Citizens; p++) {
                     if (b[p] < 20) {
